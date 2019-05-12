@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Time</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+</head>
+<body>
+  <div class="container">
+    
+    <form>
+      <label for="inputTask">Add some task with timer</label>
+      <input type="text" id="inputTask">
+      <br>
+      <input type="radio" name="timeDuration" value="10">10s
+      <input type="radio" name="timeDuration" value="50">50s
+      <input type="radio" name="timeDuration" value="10800">3h
+      <input type="radio" name="timeDuration" value="21600">6h
+      <input type="radio" name="timeDuration" value="43200">12h
+      <input type="radio" name="timeDuration" checked value="86400">24h
+
+      <br><br>
+
+      <input id="getTime" type="submit" value="Add New Task">
+    </form>
+    
+    <button id="clearTask">Clear all task</button>
+    
+    
+    <div id="div">
+      <ul id="ul">
+        
+      </ul>
+    </div>
+    
+  </div><!-- container -->
+  
+ 
+  <script src="main.js"></script>
+  </body>
+  </html>
+  
