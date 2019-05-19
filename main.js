@@ -1,7 +1,6 @@
 // Adding event Listener to Button
 let form = document.getElementsByTagName("form")[0].addEventListener("submit", getTask);
 // Creating publick Array
-// let allObjTask = [];
 let allObjTask = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
 
 //// Function for creating object and continue to create Task
@@ -111,13 +110,17 @@ function timer(timeConverter, timestamp){
 function clearTask(taskTimestamp){
   // Looping thru array of Object to fiend specific timestamp of current Task Object
   let timestampObj = taskTimestamp;
-  for(let i = 0; i < allObjTask.length; i++){
-    if(allObjTask[i].time === timestampObj){
-      // Removing oldest time stamp => First object that was put in array
-      allObjTask.shift();
-      localStorage.setItem('items', JSON.stringify(allObjTask));
+  
+  const data = JSON.parse(localStorage.getItem('items'));
+  for(let i = 0; i < data.length; i++){
+    if(data[i].time === timestampObj){
+      data.splice(i,(1));
     }
   }
+  // Returning filter array of Object in orginal array!
+  allObjTask = data;
+  // Set 
+  localStorage.setItem('items', JSON.stringify(allObjTask));
   // Restart UI in <ul>
   document.getElementById("ul").innerHTML = "";
   // Printing new UI
